@@ -28,3 +28,8 @@ curatorCamera setVectorDirAndUp [[-0.7,1,-0.5],[0,0,1]];
 ["<t color='#ff0000' size = '1.5'>Composition Created. The camera has been moved to the location.</t>",0.01,(safeZoneY + 0.12),2,1,0,90]spawn bis_fnc_dynamicText;
 
 SystemChat "Please be careful when you move the object. For some reason, Bravo Six Studios have decided to make this in 9 peices, rather than one object...";
+
+
+
+
+

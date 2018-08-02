@@ -28,3 +28,7 @@ curatorCamera setVectorDirAndUp [[0,1,-0.5],[0,0,1]];
 
 SystemChat "Please be careful when you move the object. For some reason, Bravo Six Studios have decided to make this in 9 peices, rather than one object...";
 
+
+
+
+
