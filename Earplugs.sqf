@@ -13,6 +13,8 @@ Example:		N/A
 
 */
 
+//Exec Global & JIP via Achillies.
+
 PlugsIN = 2;
 waitUntil {!isNull player};
 

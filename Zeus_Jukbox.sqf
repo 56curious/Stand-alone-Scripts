@@ -16,7 +16,7 @@ Example:        N/A
 */
 
 //
-/////////// Use LOCAL EXEC!!
+/////////// Use Global Exec
 //
 
 
