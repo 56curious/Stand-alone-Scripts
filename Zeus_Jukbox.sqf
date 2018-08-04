@@ -15,10 +15,6 @@ Example:        N/A
 
 */
 
-//
-/////////// Use Global Exec
-//
-
 
 _BannedTracks = [
     "Track15_MainTheme",
@@ -78,18 +74,27 @@ waituntil {!(IsNull (findDisplay 312))};
 TrackPaused = 1;
 MusicPauseEH = (findDisplay 312) displayAddEventHandler ["KeyDown", "if (_this select 1 == 64) then {
  switch (TrackPaused) do {
-     case 1: { TrackPaused = 2; PlayMusic [Track, MusicTime]; hint ""Track Resumed.""; };
-     case 2: { TrackPaused = 1; MusicTime = getMusicPlayedTime; playMusic ""; hint ""Track Paused."";};
-     default { };
+     case 1: {
+        TrackPaused = 2;
+        [Track, MusicTime] remoteExec [""PlayMusic"", 0, false];
+        [""Track Resumed.""] remoteExec [""hint"", 0, false];
+     };
+     case 2: {
+        TrackPaused = 1;
+        MusicTime = getMusicPlayedTime;
+        [""""] remoteExec [""PlayMusic"", 0, false];
+        [""Track Paused.""] remoteExec [""hint"", 0, false];
+     };
+     default {};
      };
 }"];
 
 MusicStoppedEH = (findDisplay 312) displayAddEventHandler ["KeyDown", "if (_this select 1 == 65) then {
-     6 fadeMusic 0;
+     [6, 0] remoteExec [""fadeMusic"", 0, false];
      sleep 6;
-     playMusic "";
+     [""""] remoteExec [""PlayMusic"", 0, false];
      6 fadeMusic 0.3;
-     hint ""Music Stopped."";
+     [""Jukebox Stopped.""] remoteExec [""hint"", 0, false];
      }"];
 sleep 1;
 _cfgMusic = [];
@@ -105,8 +110,8 @@ for "_i" from 0 to count _cfg - 1 do {
         _duration = getNumber (_class >> "duration");
         if (_Tname in _BannedTracks) then { breakTo "NextTrack" } else {
         Track = configName _class;
-        PlayMusic Track;
-        SystemChat format ["%1 is now playing for %2.", if (_Tname == "") then {"N/A"} else {_Tname}, if (_duration == 0) then {"N/A"} else {_duration}];
+        [Track] remoteExec ["playMusic", 0, false];
+        [format ["%1 is now playing for %2.", if (_Tname == "") then {"N/A"} else {_Tname}, if (_duration == 0) then {"N/A"} else {_duration}]] remoteExec ["SystemChat", 0, false];
         sleep _Duration + 2;
         };
         scopeName = "NextTrack";
