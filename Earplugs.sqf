@@ -18,9 +18,9 @@ Example:		N/A
 PlugsIN = 2;
 waitUntil {!isNull player};
 
-(findDisplay 46 OR findDisplay 312) displayRemoveEventHandler ["KeyDown", MEP_KD];
+(findDisplay 46) displayRemoveEventHandler ["KeyDown", MEP_KD];
 sleep 1;
-MEP_KD = (findDisplay 46 OR findDisplay 312) displayAddEventHandler ["KeyDown", "if (_this select 1 == 59) then {
+MEP_KD = (findDisplay 46) displayAddEventHandler ["KeyDown", "if (_this select 1 == 59) then {
  switch (PlugsIN) do {
      case 1: { PlugsIN = 2; 2 fadeSound 1; player groupChat 'EARPLUGS REMOVED'; };
 	 case 2: { PlugsIN = 1; 2 fadeSound 0.2; player groupChat 'EARPLUGS FITTED';  };
