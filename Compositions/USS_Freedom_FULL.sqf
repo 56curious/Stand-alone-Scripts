@@ -185,8 +185,6 @@ _newObject = createVehicle ['B_AAA_System_01_F', [1098.51,8543.72,18.0641], [], 
 
 
 
-
-
 /*
 ["Spawn", "USS Freedom (FULL)", {
 ["<t color='#ff0000' size = '1.5'>Custom composition creation started...</t>",0.01,(safeZoneY + 0.12),2,1,0,90]spawn bis_fnc_dynamicText;
