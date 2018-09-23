@@ -22,4 +22,3 @@ sleep 3;
 curatorCamera setPos [966.556,12218.2,22.5446];
 curatorCamera setDir 112.397;
 ["<t color='#ff0000' size = '1.5'>Composition Created. The camera has been moved to the location.</t>",0.01,(safeZoneY + 0.12),2,1,0,90]spawn bis_fnc_dynamicText;
-
